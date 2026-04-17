@@ -38,7 +38,7 @@ function SectionTag({ icon: Icon, label }: { icon: React.ElementType; label: str
 // Skill pill component
 function SkillPill({ name }: { name: string }) {
   return (
-    <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-muted text-muted-foreground text-xs font-medium">
+    <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-muted text-muted-foreground text-[11px] font-medium">
       {name}
     </span>
   )
@@ -55,13 +55,13 @@ function ValueCard({
   description: string 
 }) {
   return (
-    <div className="bg-card rounded-2xl border p-6 flex flex-col items-start gap-4">
-      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-        <Icon className="w-5 h-5 text-primary" />
+    <div className="bg-card rounded-xl border p-4 flex flex-col items-start gap-3">
+      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+        <Icon className="w-4 h-4 text-primary" />
       </div>
       <div>
-        <h3 className="font-semibold text-foreground mb-2">{title}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+        <h3 className="font-semibold text-sm text-foreground mb-1">{title}</h3>
+        <p className="text-xs text-muted-foreground leading-relaxed">{description}</p>
       </div>
     </div>
   )
@@ -80,16 +80,16 @@ function EducationCard({
   skills: string[]
 }) {
   return (
-    <div className="bg-card rounded-2xl border p-6">
-      <div className="flex items-start gap-4">
-        <div className="w-10 h-10 rounded-lg bg-success/15 flex items-center justify-center shrink-0">
-          <GraduationCap className="w-5 h-5 text-success" />
+    <div className="bg-card rounded-xl border p-4">
+      <div className="flex items-start gap-3">
+        <div className="w-8 h-8 rounded-lg bg-success/15 flex items-center justify-center shrink-0">
+          <GraduationCap className="w-4 h-4 text-success" />
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-foreground mb-1">{degree}</h3>
-          <p className="text-sm text-muted-foreground mb-1">{school}</p>
-          <p className="text-xs text-muted-foreground mb-3">{year}</p>
-          <div className="flex flex-wrap gap-2">
+          <h3 className="font-semibold text-sm text-foreground mb-0.5">{degree}</h3>
+          <p className="text-xs text-muted-foreground mb-0.5">{school}</p>
+          <p className="text-xs text-muted-foreground mb-2">{year}</p>
+          <div className="flex flex-wrap gap-1.5">
             {skills.map((skill) => (
               <SkillPill key={skill} name={skill} />
             ))}
@@ -208,10 +208,10 @@ export default function AboutPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="px-6 pt-32 pb-16 md:pt-36 md:pb-20">
+      <section className="px-6 pt-24 pb-8 md:pt-28 md:pb-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Profile Image */}
-          <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 rounded-full overflow-hidden border-4 border-card shadow-lg">
+          <div className="w-28 h-28 md:w-36 md:h-36 mx-auto mb-6 rounded-full overflow-hidden border-4 border-card shadow-lg">
             <Image 
               src="/headshot.png" 
               alt="Summer Chang"
@@ -222,20 +222,20 @@ export default function AboutPage() {
           </div>
           
           {/* Headline */}
-          <h1 className="text-3xl md:text-5xl font-extrabold leading-tight mb-6 text-balance">
+          <h1 className="text-2xl md:text-4xl font-extrabold leading-tight mb-4 text-balance">
             I&apos;m Summer and I am a{" "}
             <span className="text-primary">lifelong learner</span>
           </h1>
           
           {/* Bio */}
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-4">
             I am a designer with a love of code, systems-thinking, and emerging technology. 
             I have a previous career as an educator, which has led to a deep curiosity and 
             love of mentoring other designers.
           </p>
           
           {/* Connect Links */}
-          <p className="text-base text-muted-foreground mb-8">
+          <p className="text-sm text-muted-foreground">
             Let&apos;s connect on{" "}
             <Link href="https://linkedin.com/in/summerbreezechang" className="text-foreground underline underline-offset-2 hover:text-primary transition-colors">
               LinkedIn
@@ -253,11 +253,11 @@ export default function AboutPage() {
       </section>
 
       {/* Download Resume Section */}
-      <section className="px-6 pb-16 md:pb-24">
+      <section className="px-6 pb-8 md:pb-12">
         <div className="max-w-xl mx-auto">
-          <div className="bg-card rounded-2xl border p-8 text-center">
-            <h2 className="text-2xl font-bold mb-2">Download My Resume</h2>
-            <p className="text-sm text-muted-foreground mb-6">Get my latest resume in PDF format</p>
+          <div className="bg-card rounded-2xl border p-6 text-center">
+            <h2 className="text-xl font-bold mb-1">Download My Resume</h2>
+            <p className="text-sm text-muted-foreground mb-4">Get my latest resume in PDF format</p>
             <a
               href="/Summer-Chang-Resume.pdf"
               download
@@ -271,15 +271,15 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="px-6 pb-16 md:pb-24">
+      <section className="px-6 pb-8 md:pb-12">
         <div className="max-w-4xl mx-auto">
           <SectionTag icon={Heart} label="Values" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">What I Value</h2>
-          <p className="text-muted-foreground mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">What I Value</h2>
+          <p className="text-sm text-muted-foreground mb-4">
             I believe in principles that guide my growth and inspire my community.
           </p>
           
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-4">
             {valuesData.map((value) => (
               <ValueCard 
                 key={value.title}
@@ -293,16 +293,16 @@ export default function AboutPage() {
       </section>
 
       {/* Skills Section */}
-      <section className="px-6 pb-16 md:pb-24">
+      <section className="px-6 pb-8 md:pb-12">
         <div className="max-w-4xl mx-auto">
           <SectionTag icon={Wrench} label="Skills" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">My Skillset and Tools</h2>
-          <p className="text-muted-foreground mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">My Skillset and Tools</h2>
+          <p className="text-sm text-muted-foreground mb-4">
             Some of the tools and skills I use regularly.
           </p>
 
           {/* Tabs */}
-          <div className="flex gap-1 p-1 bg-muted rounded-full w-fit mb-8">
+          <div className="flex gap-1 p-1 bg-muted rounded-full w-fit mb-4">
             {skillCategories.map((cat) => (
               <button
                 key={cat.id}
@@ -319,7 +319,7 @@ export default function AboutPage() {
           </div>
 
           {/* Skills Grid */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-4">
             {Object.entries(toolsData).map(([category, skills]) => {
               const iconMap: Record<string, React.ElementType> = {
                 "Design & Prototyping": Palette,
@@ -330,14 +330,14 @@ export default function AboutPage() {
               const Icon = iconMap[category] || Wrench
               
               return (
-                <div key={category} className="bg-card rounded-2xl border p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-8 h-8 rounded-lg bg-success/15 flex items-center justify-center">
-                      <Icon className="w-4 h-4 text-success" />
+                <div key={category} className="bg-card rounded-xl border p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-7 h-7 rounded-lg bg-success/15 flex items-center justify-center">
+                      <Icon className="w-3.5 h-3.5 text-success" />
                     </div>
-                    <h3 className="font-semibold text-sm">{category}</h3>
+                    <h3 className="font-semibold text-xs">{category}</h3>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5">
                     {skills.map((skill) => (
                       <SkillPill key={skill} name={skill} />
                     ))}
@@ -350,15 +350,15 @@ export default function AboutPage() {
       </section>
 
       {/* Education Section */}
-      <section className="px-6 pb-16 md:pb-24">
+      <section className="px-6 pb-8 md:pb-12">
         <div className="max-w-4xl mx-auto">
           <SectionTag icon={GraduationCap} label="Education" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">Degrees and Certificates</h2>
-          <p className="text-muted-foreground mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">Degrees and Certificates</h2>
+          <p className="text-sm text-muted-foreground mb-4">
             From teaching to design to coding, I&apos;ve always loved learning.
           </p>
           
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             {educationData.map((edu) => (
               <EducationCard 
                 key={edu.degree}
@@ -373,16 +373,16 @@ export default function AboutPage() {
       </section>
 
       {/* Inspiration Section */}
-      <section className="px-6 pb-16 md:pb-24">
+      <section className="px-6 pb-8 md:pb-12">
         <div className="max-w-4xl mx-auto">
           <SectionTag icon={Sparkles} label="Inspiration" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">What I&apos;m Thinking About</h2>
-          <p className="text-muted-foreground mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">What I&apos;m Thinking About</h2>
+          <p className="text-sm text-muted-foreground mb-4">
             Music, books, and other media I turn to for inspiration.
           </p>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="flex flex-wrap gap-2 mb-4">
             {inspirationFilters.map((filter) => (
               <button
                 key={filter.id}
@@ -399,7 +399,7 @@ export default function AboutPage() {
           </div>
 
           {/* Inspiration Grid */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
             {inspirationData.map((item, index) => (
               <InspirationItem 
                 key={index}
@@ -413,9 +413,9 @@ export default function AboutPage() {
       </section>
 
       {/* Say Hi Section */}
-      <section className="px-6 pb-16 md:pb-24">
+      <section className="px-6 pb-12 md:pb-16">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 flex items-center gap-3">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
             <span className="text-4xl">👋</span> Say Hi
           </h2>
           
